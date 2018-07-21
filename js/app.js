@@ -1,10 +1,12 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 //TODO x & y position
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.x = x;
+    this.y = y + 60;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -49,6 +51,10 @@ Hero.prototype.render = function() {
 // Place the player object in a variable called player
 const allEnemies = [];
 const player = new Hero();
+const bug1 = new Enemy(0, 0);
+const bug2 = new Enemy(0, 85);
+const bug3 = new Enemy(0, 165);
+allEnemies.push(bug1, bug2, bug3);
 
 
 // This listens for key presses and sends the keys to your
