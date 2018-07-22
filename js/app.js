@@ -1,13 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function(x, y) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-//TODO x & y position
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+var Enemy = function(x, y, speed) {
+    // Variables applied to each of our instances go here
     this.x = x;
     this.y = y + 60;
     this.sprite = 'images/enemy-bug.png';
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -16,7 +13,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-
+    this.x += this.speed;
     //TODO check if move within bounds? move forward && increment speed || reset to start position
 };
 
@@ -28,10 +25,30 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Hero = function() {
+class Hero {
+  constructor() {
   this.x = 205;
   this.y = 400;
   this.sprite = 'images/char-horn-girl.png'
+  this.xStep = 101;
+  this.yStep = 83;
+}
+  handleInput(input) {
+    switch(input) {
+      case 'up':
+        this.y -= this.yStep;
+        break;
+      case 'down':
+        this.y += this.yStep;
+        break;
+      case 'right':
+        this.x += this.xStep;
+        break;
+      case 'left':
+        this.x -= this.xStep;
+        break;
+    }
+  }
 };
 //update
 Hero.prototype.update = function(dt) {
@@ -42,7 +59,6 @@ Hero.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 //TODO handleInput
-  //position
   //check checkCollisions
   //check for win
 
@@ -51,10 +67,12 @@ Hero.prototype.render = function() {
 // Place the player object in a variable called player
 const allEnemies = [];
 const player = new Hero();
-const bug1 = new Enemy(0, 0);
-const bug2 = new Enemy(0, 85);
-const bug3 = new Enemy(0, 165);
-allEnemies.push(bug1, bug2, bug3);
+const bug1 = new Enemy(0, 0, 1);
+const bug2 = new Enemy(0, 85, 2.5);
+const bug3 = new Enemy(0, 165, 1.25);
+const bug4 = new Enemy(100, 35, 1.5);
+const bug5 = new Enemy(100, 120, 1);
+allEnemies.push(bug1, bug2, bug3, bug4, bug5);
 
 
 // This listens for key presses and sends the keys to your
