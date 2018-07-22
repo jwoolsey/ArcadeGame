@@ -42,18 +42,26 @@ class Hero {
   handleInput(input) {
     switch(input) {
       case 'up':
-        this.y -= this.yStep;
+        if(this.y > 0) {
+          this.y -= this.yStep;
+        }
         break;
       case 'down':
-        this.y += this.yStep;
+        if(this.y < this.yStep * 4) {
+          this.y += this.yStep;
+        }
         break;
       case 'right':
-        this.x += this.xStep;
+        if(this.x < this.xStep *4) {
+          this.x += this.xStep;
+        }
         break;
       case 'left':
-        this.x -= this.xStep;
+        if(this.x > this.xStep * 0.7) {
+          this.x -= this.xStep;
+        }
         break;
-    }
+      }
   }
   reset() {
     this.y = this.yStart;
@@ -63,20 +71,27 @@ class Hero {
 
 //update player
 Hero.prototype.update = function(dt) {
-//TODO check if move within bounds? move forward && increment speed || reset to start position
+  //Check for collision
   for(let enemy of allEnemies) {
     if(
-      (this.y <= enemy.y + 25) && (this.y >= enemy.y - 25) &&
-      (this.x <= enemy.x + 50) && (this.x >= enemy.x -50)) {
+      (this.y <= enemy.y + 20) && //top pad
+      (this.y >= enemy.y - 20) && //bottom pad
+      (this.x <= enemy.x + 60) && //left pad
+      (this.x >= enemy.x - 45))   //right pad
+      {
         this.reset();
-    }
+      }
   }
+  //Check for win conditions
+  if(this.y < 0) {
+      modal.style.display = 'block';
+  }
+
 };
 //render player
 Hero.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
-//TODO check for win
 
 // Instantiate objects for hero and enemies
 const allEnemies = [];
@@ -101,4 +116,22 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
+});
+
+// Get the modal
+const modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName('close')[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  player.reset();
+    modal.style.display = 'none';
+}
+
+//Add event listener for modal button to call refresh and close modal
+document.querySelector('.modalReplay').addEventListener('click', () => {
+  player.reset();
+  modal.style.display = 'none';
 });

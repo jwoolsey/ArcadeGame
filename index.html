@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Effective JavaScript: Frogger</title>
+    <title>Frogger Style Arcade Game</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- The Modal (modified from w3school.com)-->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modalContent">
+      <span class="close">&times;</span>
+      <h1 class="modalTitle">Congratulations, you won!</h1>
+      <p>Would you like to play again?</p>
+      <div class="modalButton">
+        <button class="modalReplay">Replay</button>
+      </div>
+    </div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
