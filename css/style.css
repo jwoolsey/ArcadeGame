@@ -1,5 +1,11 @@
 body {
     text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif, bold;
+  fon
 }
 /*
  * Styles for the Modal (modified from w3school)
