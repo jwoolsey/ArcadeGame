@@ -5,6 +5,7 @@ var Enemy = function(x, y, speed) {
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
     this.speed = speed;
+    this.boundary = 505;
 };
 
 // Update the enemy's position, required method for game
@@ -13,8 +14,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed * dt;
-
+    if (this.x < this.boundary) {
+      this.x += this.speed * dt;
+    } else {
+      this.x = -101;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -82,7 +86,8 @@ const bug2 = new Enemy(-101, 145, 255);
 const bug3 = new Enemy(-101, 225, 125);
 const bug4 = new Enemy(-200, 145, 150);
 const bug5 = new Enemy(-200, 225, 175);
-allEnemies.push(bug1, bug2, bug3, bug4, bug5);
+const bug6 = new Enemy(-101, 60, 200);
+allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6);
 
 
 // This listens for key presses and sends the keys to your
