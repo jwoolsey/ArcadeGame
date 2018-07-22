@@ -2,7 +2,7 @@
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here
     this.x = x;
-    this.y = y + 60;
+    this.y = y;
     this.sprite = 'images/enemy-bug.png';
     this.speed = speed;
 };
@@ -14,7 +14,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
-    //TODO check if move within bounds? move forward && increment speed || reset to start position
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -27,11 +27,13 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Hero {
   constructor() {
-  this.x = 205;
-  this.y = 400;
-  this.sprite = 'images/char-horn-girl.png'
-  this.xStep = 101;
-  this.yStep = 83;
+    this.sprite = 'images/char-horn-girl.png'
+    this.xStep = 101;
+    this.yStep = 83;
+    this.xStart = this.xStep * 2;
+    this.yStart = this.yStep * 4.5;
+    this.x = this.xStart;
+    this.y = this.yStart;
 }
   handleInput(input) {
     switch(input) {
@@ -49,10 +51,19 @@ class Hero {
         break;
     }
   }
+  update(allEnemies) {
+    for(let enemy of allEnemies) {
+      if(this.y === enemy.y && this.x === enemy.x) {
+        console.log('Collide!');
+      } else {
+        console.log('good');
+      }
+    }
+  }
 };
 //update
 Hero.prototype.update = function(dt) {
-
+//TODO check if move within bounds? move forward && increment speed || reset to start position
 };
 //render
 Hero.prototype.render = function() {
@@ -67,11 +78,11 @@ Hero.prototype.render = function() {
 // Place the player object in a variable called player
 const allEnemies = [];
 const player = new Hero();
-const bug1 = new Enemy(-101, 0, 100);
-const bug2 = new Enemy(-101, 85, 255);
-const bug3 = new Enemy(-101, 165, 125);
-const bug4 = new Enemy(-200, 45, 150);
-const bug5 = new Enemy(-200, 120, 175);
+const bug1 = new Enemy(-101, 60, 100);
+const bug2 = new Enemy(-101, 145, 255);
+const bug3 = new Enemy(-101, 225, 125);
+const bug4 = new Enemy(-200, 145, 150);
+const bug5 = new Enemy(-200, 225, 175);
 allEnemies.push(bug1, bug2, bug3, bug4, bug5);
 
 
