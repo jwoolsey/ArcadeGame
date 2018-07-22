@@ -31,7 +31,7 @@ class Hero {
     this.xStep = 101;
     this.yStep = 83;
     this.xStart = this.xStep * 2;
-    this.yStart = this.yStep * 4.5;
+    this.yStart = this.yStep * 4.8;
     this.x = this.xStart;
     this.y = this.yStart;
 }
@@ -51,19 +51,26 @@ class Hero {
         break;
     }
   }
-  update(allEnemies) {
-    for(let enemy of allEnemies) {
-      if(this.y === enemy.y && this.x === enemy.x) {
-        console.log('Collide!');
+  update() {
+    /*for(let enemy of allEnemies) {
+      if((this.y <= enemy.y + 100) && (this.y >= enemy.y - 100)) {
+        alert('Collide!');
       } else {
-        console.log('good');
+
       }
-    }
+    }*/
   }
 };
 //update
 Hero.prototype.update = function(dt) {
 //TODO check if move within bounds? move forward && increment speed || reset to start position
+  for(let enemy of allEnemies) {
+    if((this.y <= enemy.y + 25) && (this.y >= enemy.y - 25) && (this.x <= enemy.x + 50) && (this.x >= enemy.x -50)) {
+      alert('Collide!');
+    } else {
+
+    }
+  }
 };
 //render
 Hero.prototype.render = function() {
