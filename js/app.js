@@ -51,38 +51,30 @@ class Hero {
         break;
     }
   }
-  update() {
-    /*for(let enemy of allEnemies) {
-      if((this.y <= enemy.y + 100) && (this.y >= enemy.y - 100)) {
-        alert('Collide!');
-      } else {
-
-      }
-    }*/
+  reset() {
+    this.y = this.yStart;
+    this.x = this.xStart;
   }
 };
-//update
+
+//update player
 Hero.prototype.update = function(dt) {
 //TODO check if move within bounds? move forward && increment speed || reset to start position
   for(let enemy of allEnemies) {
-    if((this.y <= enemy.y + 25) && (this.y >= enemy.y - 25) && (this.x <= enemy.x + 50) && (this.x >= enemy.x -50)) {
-      alert('Collide!');
-    } else {
-
+    if(
+      (this.y <= enemy.y + 25) && (this.y >= enemy.y - 25) &&
+      (this.x <= enemy.x + 50) && (this.x >= enemy.x -50)) {
+        this.reset();
     }
   }
 };
-//render
+//render player
 Hero.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
-//TODO handleInput
-  //check checkCollisions
-  //check for win
+//TODO check for win
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+// Instantiate objects for hero and enemies
 const allEnemies = [];
 const player = new Hero();
 const bug1 = new Enemy(-101, 60, 100);
