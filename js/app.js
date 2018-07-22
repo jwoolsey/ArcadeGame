@@ -13,7 +13,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed;
+    this.x += this.speed * dt;
     //TODO check if move within bounds? move forward && increment speed || reset to start position
 };
 
@@ -67,11 +67,11 @@ Hero.prototype.render = function() {
 // Place the player object in a variable called player
 const allEnemies = [];
 const player = new Hero();
-const bug1 = new Enemy(0, 0, 1);
-const bug2 = new Enemy(0, 85, 2.5);
-const bug3 = new Enemy(0, 165, 1.25);
-const bug4 = new Enemy(100, 35, 1.5);
-const bug5 = new Enemy(100, 120, 1);
+const bug1 = new Enemy(-101, 0, 100);
+const bug2 = new Enemy(-101, 85, 255);
+const bug3 = new Enemy(-101, 165, 125);
+const bug4 = new Enemy(-200, 45, 150);
+const bug5 = new Enemy(-200, 120, 175);
 allEnemies.push(bug1, bug2, bug3, bug4, bug5);
 
 
