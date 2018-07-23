@@ -1,6 +1,27 @@
-frontend-nanodegree-arcade-game
+# Frontend-Nanodegree-Arcade-Game
 ===============================
+## Description
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Interactive frogger-like arcade game built on Udacity's starter code.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Table of Contents
+* [Instructions](#instructions)
+* [Contributing](#contributing)
+* [Credits](#credits)
+
+## Instructions
+There are two ways to play this memory game:
+
+1. View the project through the GitHub HTML Preview using this link => https://htmlpreview.github.io/?https://github.com/jwoolsey/ArcadeGame/blob/master/index.html
+
+2. Download (or clone) a copy to your local hard drive and run it from there.
+
+The object of the game is to move your Hero to the water as quickly as possible while avoiding bugs. Your hero is controlled with the keyboard arrow keys (up, down, left, and right). At this time play is not possible without a keyboard.
+
+## Contributing
+The nature of this project is for personal growth. As such please submit issues or suggestions, in general contributions will not be accepted.
+
+## Credits
+Project Starter code was provided by Udacity
+
+Modal starter code was provided by Udacity
