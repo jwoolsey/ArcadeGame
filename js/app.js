@@ -29,8 +29,7 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Hero {
-  constructor() {
+var Hero = function() {
     this.sprite = 'images/char-horn-girl.png'
     this.xStep = 101;
     this.yStep = 83;
@@ -38,7 +37,7 @@ class Hero {
     this.yStart = this.yStep * 4.8;
     this.x = this.xStart;
     this.y = this.yStart;
-}
+
   handleInput(input) {
     switch(input) {
       case 'up':
