@@ -127,7 +127,7 @@ const span = document.getElementsByClassName('close')[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   player.reset();
-    modal.style.display = 'none';
+  modal.style.display = 'none';
 }
 
 //Add event listener for modal button to call refresh and close modal
