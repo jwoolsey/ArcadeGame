@@ -12,7 +12,7 @@ Interactive frogger-like arcade game built on Udacity's starter code.
 ## Instructions
 There are two ways to play this memory game:
 
-1. View the project through the GitHub HTML Preview using this link => https://htmlpreview.github.io/?https://github.com/jwoolsey/ArcadeGame/blob/master/index.html
+1. View the project through the GitHub Page using this link => https://jwoolsey.github.io/ArcadeGame/
 
 2. Download (or clone) a copy to your local hard drive and run it from there.
 
