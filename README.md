@@ -1,5 +1,5 @@
 # Frontend-Nanodegree-Arcade-Game
-===============================
+
 ## Description
 
 Interactive frogger-like arcade game built on Udacity's starter code.
@@ -24,4 +24,4 @@ The nature of this project is for personal growth. As such please submit issues 
 ## Credits
 Project Starter code was provided by Udacity
 
-Modal starter code was provided by Udacity
+Modal starter code was provided by w3schools.com
